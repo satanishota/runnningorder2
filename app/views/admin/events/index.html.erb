@@ -1,0 +1,13 @@
+<h1>Admin::Events#index</h1>
+
+<% @events.each do |event| %>
+  <p>タイトル</p>
+  <p>
+    <%= link_to event.name, admin_event_path(event.id) %>
+  <p>
+  <p>開催日</p>
+  <p><%= event.day %><p>
+  <p>距離</p>
+  <p><%= event.distance %>㎞<p>
+<% end %>
+

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   devise_for :users,:controllers => {
  :registrations => 'public/registrations',
  :sessions => 'public/sessions'}
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top' => 'homes#top'
     root to: 'homes#top'
+    resources :events
   end
 
 
