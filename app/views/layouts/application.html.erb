@@ -10,6 +10,40 @@
   </head>
 
   <body>
+    <% if admin_signed_in? %>
+
+      <li>
+        <%= link_to "ログアウトa", destroy_admin_session_path, method: :delete %>
+      </li>
+
+    <% else %>
+
+      <li>
+        <%= link_to "新規登録a", new_admin_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログインa", new_admin_session_path %>
+
+      </li>
+    <% end %>
+
+    <% if user_signed_in? %>
+
+      <li>
+        <%= link_to "ログアウトu", destroy_user_session_path, method: :delete %>
+      </li>
+
+    <% else %>
+
+      <li>
+        <%= link_to "新規登録u", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログインu", new_user_session_path %>
+
+      </li>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
