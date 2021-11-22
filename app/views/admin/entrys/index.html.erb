@@ -1,4 +1,8 @@
-<h1>Homes#top</h1>
+<h1>Admin::Entrys#index</h1>
+
+<p>
+  <%= link_to "rank", admin_rank_path(:event_id => @entrys.first.event_id) %>
+<p>
 
 <% @entrys.each do |entry| %>
   <p>タイム</p>

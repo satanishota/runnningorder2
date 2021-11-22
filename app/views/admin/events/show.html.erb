@@ -16,3 +16,6 @@
   <p>
     <%= link_to "編集する", edit_admin_event_path(@event.id) %>
   <p>
+  <p>
+    <%= link_to "エントリー一覧", admin_entrys_path(:event_id => @event.id)%>
+  <p>

@@ -1,0 +1,9 @@
+<h1>Admin::Entrys#edit</h1>
+
+<%= form_with model: @entry, url:admin_entry_path, local:true do |f| %>
+  <h4>タイム</h4>
+  <%= f.text_field :time %>
+
+  <%= f.submit '作成' %>
+<% end %>
+

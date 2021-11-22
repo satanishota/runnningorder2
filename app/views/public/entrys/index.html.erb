@@ -1,9 +1,9 @@
-<h1>Homes#top</h1>
+<h1>Public::Entrys#index</h1>
 
 <% @entrys.each do |entry| %>
   <p>タイム</p>
   <p>
-    <%= link_to entry.time, admin_entry_path(entry.id) %>
+    <%= link_to entry.time, entry_path(entry.id) %>
   <p>
   <p>大会ID</p>
   <p><%= entry.event_id %><p>
@@ -11,4 +11,3 @@
   <p><%= entry.user_id %><p>
   ---------------------------------------------------------
 <% end %>
-

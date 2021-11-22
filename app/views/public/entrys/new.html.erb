@@ -1,0 +1,10 @@
+<h1>Public::Entrys#new</h1>
+
+<%= form_with model: @entry, url:entrys_path, local:true do |f| %>
+  <h4>タイム</h4>
+  <%= f.text_field :time %>
+  <h4>大会ID</h4>
+  <%= f.number_field :event_id %>
+
+  <%= f.submit '作成' %>
+<% end %>
