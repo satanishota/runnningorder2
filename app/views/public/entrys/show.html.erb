@@ -3,3 +3,6 @@
 <p>タイム</p>
   <p><%= @entry.time %><p>
 
+<p>
+  <%= link_to @entry.event.name, event_path(@entry.event_id) %>
+<p>

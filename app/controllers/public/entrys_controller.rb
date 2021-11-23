@@ -4,9 +4,8 @@ class Public::EntrysController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(entry_params)
-
-    @entry.user_id = current_user.id
+    @entry = current_user.entrys.new(entry_params)
+    
     if @entry.save
       redirect_to entry_path(@entry.id)
     else
@@ -16,10 +15,15 @@ class Public::EntrysController < ApplicationController
   end
 
   def index
+    @entrys = current_user.entrys
   end
 
   def show
     @entry = Entry.find(params[:id])
+  end
+  
+  def rank
+   @entrys = @entrys = Entry.where("event_id=?", params[:event_id])
   end
 
   private

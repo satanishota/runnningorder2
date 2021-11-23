@@ -1,0 +1,25 @@
+<h1>Public::Events#show</h1>
+
+<p>タイトル</p>
+  <p><%= @event.name %><p>
+  <p>内容</p>
+  <p><%= @event.introduction %><p>
+  <p>開催場所</p>
+  <p><%= @event.place %><p>
+  <p>定員</p>
+  <p><%= @event.capacity %><p>
+  <p>開催日</p>
+  <p><%= @event.day %><p>
+  <p>距離</p>
+  <p><%= @event.distance %>㎞<p>
+
+  <%= form_with model:@entry, url: entrys_path, local:true do |f| %>
+  <p>タイム</p>
+  <p><%= f.select :time, *[1..10] %></p>
+  <%= f.hidden_field :event_id, :value => @event.id%>
+
+  <%= f.submit 'エントリーする' %>
+  <p>
+  <%= link_to "rank", rank_path(:event_id => @event.id)%>
+  <p>
+<% end %>

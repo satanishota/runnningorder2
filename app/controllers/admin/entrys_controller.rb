@@ -1,5 +1,6 @@
 class Admin::EntrysController < ApplicationController
   def index
+    
     @entrys = Entry.where("event_id=?", params[:event_id])
 
     # @entrys = Entry.order("time DESC")
@@ -20,6 +21,7 @@ class Admin::EntrysController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update(entry_params)
+      
       redirect_to admin_entrys_path
     else
       render :edit

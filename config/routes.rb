@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'events/index'
+    get 'events/show'
+  end
   devise_for :users,:controllers => {
  :registrations => 'public/registrations',
  :sessions => 'public/sessions'}
@@ -11,7 +15,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top' => 'homes#top'
     root to: 'homes#top'
-   
     resources :events
     resources :users, only: [ :index, :show, :edit, :update]
     resources :entrys, only: [ :index, :show, :edit, :update,:create]
@@ -21,10 +24,13 @@ Rails.application.routes.draw do
 
 
  scope module: :public do
+ resources :entrys, only: [ :index, :show, :new, :create]
+ resources :events, only: [ :index, :show]
  get 'top' => 'homes#top'
  root to: 'homes#top'
  get 'about' => 'homes#about'
-resources :entrys, only: [ :index, :show, :new, :create]
+ get "rank" => "entrys#rank"
+
 
   end
 end

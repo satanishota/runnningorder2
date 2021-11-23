@@ -1,0 +1,13 @@
+<h1>rank</h1>
+
+<% @entrys.each do |entry| %>
+  <p>タイム</p>
+  <p>
+    <%= link_to entry.time, admin_entry_path(entry.id) %>
+  <p>
+  <p>大会ID</p>
+  <p><%= entry.event_id %><p>
+  <p>ユーザーID</p>
+  <p><%= entry.user_id %><p>
+  ---------------------------------------------------------
+<% end %>

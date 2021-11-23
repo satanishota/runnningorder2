@@ -16,10 +16,13 @@
         <%= link_to "ログアウトa", destroy_admin_session_path, method: :delete %>
       </li>
       <li>
+        <%= link_to "トップ画面", admin_top_path %>
+      </li>
+      <li>
         <%= link_to "大会一覧", admin_events_path %>
       </li>
       <li>
-        <%= link_to "エントリー一覧", admin_entrys_path %>
+        <%= link_to "ユーザー一覧", admin_users_path %>
       </li>
 
     <% else %>
@@ -37,6 +40,15 @@
 
       <li>
         <%= link_to "ログアウトu", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "マイページ", root_path %>
+      </li>
+      <li>
+        <%= link_to "イベント一覧", events_path %>
+      </li>
+      <li>
+        <%= link_to "エントリー一覧", entrys_path %>
       </li>
 
     <% else %>
