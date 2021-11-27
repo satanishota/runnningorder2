@@ -13,13 +13,20 @@
   <p>距離</p>
   <p><%= @event.distance %>㎞<p>
 
-  <%= form_with model:@entry, url: entrys_path, local:true do |f| %>
-  <p>タイム</p>
-  <p><%= f.select :time, *[1..10] %></p>
-  <%= f.hidden_field :event_id, :value => @event.id%>
+  <%= Date.current.strftime %>
+  <%# binding.pry %>
+  <% if @event.day >= Date.today %>
+  <p>エントリーを締め切りました。</p>
 
-  <%= f.submit 'エントリーする' %>
+  <% elsif  @event.capacity <= @entrys %>
+  <p>定員オーバーのためエントリーを締め切りました。</p>
+  <% else %>
+  <p>
+  <%= link_to "エントリーへ進む", new_entry_path(:event_id => @event.id)%>
+  <p>
+  <% end %>
+
   <p>
   <%= link_to "rank", rank_path(:event_id => @event.id)%>
   <p>
-<% end %>
+

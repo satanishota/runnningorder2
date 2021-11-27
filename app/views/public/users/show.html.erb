@@ -1,0 +1,8 @@
+<h1>Public::Users#show</h1>
+
+<p>ユーザー名</p>
+<p><%= @user.name %><p>
+
+<p>
+    <%= link_to "大会参加履歴へ", result_path(:user_id => @user.id)%>
+<p>
