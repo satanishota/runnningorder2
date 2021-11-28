@@ -27,12 +27,15 @@ class Public::EntrysController < ApplicationController
   end
 
   def rank
-    @entrys = Entry.where("event_id=?", params[:event_id])
+    @event = Event.find(params[:event_id])
+    @users = @event.entrys_users
   end
 
   def search
-      @abcs = Abc.where('year LIKE ?', "%#{params[:year]}%")
-      render :index
+    @event = Event.find(params[:event_id])
+    @users = @event.entrys_users.where('name LIKE ?', "%#{params[:name]}%")
+   
+    render :rank
   end
 
   private

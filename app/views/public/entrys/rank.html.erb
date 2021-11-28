@@ -1,5 +1,11 @@
 <h1>rank</h1>
 
+<%= form_tag(search_path, method: "get") do %>
+  <%= text_field_tag :name %>
+  <%= hidden_field_tag :event_id, @event.id%>
+  <%= submit_tag "絞り込み" %>
+<% end %>
+
 <table>
     <tr>
       <th>順位</th>
@@ -7,12 +13,12 @@
       <th>ユーザー名</th>
 
     </tr>
-    <% @entrys.each.with_index(1) do |entry, i| %>
+    <% @users.each.with_index(1) do |user, i| %>
     <tr>
       <th><%= i %></th>
-      <th><%= Time.at(entry.time).strftime("%H時間%M分%S秒")%></th>
+      <th><%= Time.at(user.entrys.find_by(event_id: @event.id).time).strftime("%H時間%M分%S秒")%></th>
       <th>
-      <%= link_to entry.user.name, user_path(entry.user_id) %>　選手
+      <%= link_to user.name, user_path(user) %>　選手
 　    </th>
 
 　    </tr>
