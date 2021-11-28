@@ -30,6 +30,11 @@ class Public::EntrysController < ApplicationController
     @entrys = Entry.where("event_id=?", params[:event_id])
   end
 
+  def search
+      @abcs = Abc.where('year LIKE ?', "%#{params[:year]}%")
+      render :index
+  end
+
   private
   def entry_params
     params.require(:entry).permit(:time, :user_id, :event_id)

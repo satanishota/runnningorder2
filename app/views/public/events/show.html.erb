@@ -14,8 +14,8 @@
   <p><%= @event.distance %>㎞<p>
 
   <%= Date.current.strftime %>
-  <%# binding.pry %>
-  <% if @event.day >= Date.today %>
+
+  <% if @event.day <= Date.today %>
   <p>エントリーを締め切りました。</p>
 
   <% elsif  @event.capacity <= @entrys %>

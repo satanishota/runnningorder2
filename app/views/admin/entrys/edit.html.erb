@@ -1,10 +1,10 @@
 <h1>Admin::Entrys#edit</h1>
 
-<%= form_with model: @entry, url:admin_entry_path local:true do |f| %>
+<%= form_with model:@entry, url: admin_entry_path, local:true do |f| %>
   <h4>タイム</h4>
   <%= f.text_field :time %>
   <%= f.hidden_field :event_id, :value => @entry.event_id %>
 
-  <%= f.submit '作成' %>
+  <%= f.submit '更新する' %>
 <% end %>
 

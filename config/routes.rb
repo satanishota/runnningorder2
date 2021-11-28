@@ -29,6 +29,7 @@ Rails.application.routes.draw do
  get 'about' => 'homes#about'
  get "rank" => "entrys#rank"
  get "result" => "entrys#result"
+ get "search" => "entrys#search"
 
   end
 end

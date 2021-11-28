@@ -1,8 +1,10 @@
 <h1>Admin::Entrys#show</h1>
 
+  <p>ユーザー名</p>
+  <p><%= @entry.user.name %> 選手</p>
   <p>タイム</p>
   <p><%= @entry.time %><p>
 
   <p>
-    <%= link_to "編集する", edit_admin_entry_path(@entry.id) %>
+    <%= link_to "タイムを入力する", edit_admin_entry_path(@entry.id) %>
   <p>

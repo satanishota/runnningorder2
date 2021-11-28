@@ -5,17 +5,23 @@
   <%= link_to "rank", admin_rank_path(:event_id => @entrys.first.event_id) %>
 <p>
 
-<% @entrys.each do |entry| %>
-  <p>タイム</p>
-  <p>
-    <%= link_to entry.time, admin_entry_path(entry.id) %>
-  <p>
-  <p>ユーザー名</p>
-  <p><%= entry.user.name %><p>
-  <p>大会ID</p>
-<p><%= entry.event_id %><p>
-<p>大会名</p>
-<p><%= entry.event.name %></p>
-  ---------------------------------------------------------
-<% end %>
+  <p><%= @enter %>人/ <%= @entry.event.capacity %></p>
+  <p><%= @entry.event.name %></p>
+<table>
+    <tr>
+      <th>タイム</th>
+      <th>ユーザー名</th>
+
+    </tr>
+    <% @entrys.each do |entry| %>
+    <tr>
+      <th>
+        <%= link_to entry.time, admin_entry_path(entry.id) %>
+      </th>
+      <th><%= entry.user.name %></th>
+
+　    </tr>
+    <% end %>
+  </table>
+
 

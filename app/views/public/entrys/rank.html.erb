@@ -1,13 +1,20 @@
 <h1>rank</h1>
 
-<% @entrys.each do |entry| %>
-  <p>タイム</p>
-  <p><%= entry.time %><p>
-  <p>大会ID</p>
-  <p><%= entry.event_id %><p>
-  <p>ユーザー名</p>
-  <p>
-    <%= link_to entry.user.name, user_path(entry.user_id) %>　選手
-  <p>
-  ---------------------------------------------------------
-<% end %>
+<table>
+    <tr>
+      <th>順位</th>
+      <th>タイム</th>
+      <th>ユーザー名</th>
+
+    </tr>
+    <% @entrys.each.with_index(1) do |entry, i| %>
+    <tr>
+      <th><%= i %></th>
+      <th><%= Time.at(entry.time).strftime("%H時間%M分%S秒")%></th>
+      <th>
+      <%= link_to entry.user.name, user_path(entry.user_id) %>　選手
+　    </th>
+
+　    </tr>
+    <% end %>
+  </table>

@@ -1,7 +1,7 @@
 <h1>Admin::Users#index</h1>
 
 <% @users.each do |user| %>
-  <p>タイトル</p>
+  <p>ユーザー名</p>
   <p>
     <%= link_to user.name, admin_user_path(user.id) %>
   <p>

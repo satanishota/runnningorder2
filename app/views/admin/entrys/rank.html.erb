@@ -2,12 +2,14 @@
 
 <table>
     <tr>
+      <th>順位</th>
       <th>タイム</th>
       <th>ユーザー名</th>
 
     </tr>
-    <% @entrys.each do |entry| %>
+    <% @entrys.each.with_index(1) do |entry, i| %>
     <tr>
+      <th><%= i %></th>
       <th><%= Time.at(entry.time).strftime("%H時間%M分%S秒")%></th>
       <th>
     <%= entry.user.name %>

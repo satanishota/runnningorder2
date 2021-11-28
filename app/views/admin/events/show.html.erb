@@ -1,5 +1,9 @@
 <h1>Admin::Events#show</h1>
 
+　<p>
+    <%= link_to "編集する", edit_admin_event_path(@event.id) %>
+  <p>
+
   <p>タイトル</p>
   <p><%= @event.name %><p>
   <p>内容</p>
@@ -14,8 +18,5 @@
   <p><%= @event.distance %>㎞<p>
 
   <p>
-    <%= link_to "編集する", edit_admin_event_path(@event.id) %>
-  <p>
-  <p>
-    <%= link_to "エントリー一覧", admin_entrys_path(:event_id => @event.id)%>
+    <%= link_to "エントリー選手一覧", admin_entrys_path(:event_id => @event.id)%>
   <p>
