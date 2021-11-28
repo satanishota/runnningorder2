@@ -1,13 +1,20 @@
 <h1>rank</h1>
 
-<% @entrys.each do |entry| %>
-  <p>タイム</p>
-  <p>
-    <%= link_to entry.time, admin_entry_path(entry.id) %>
-  <p>
-  <p>大会ID</p>
-  <p><%= entry.event_id %><p>
-  <p>ユーザーID</p>
-  <p><%= entry.user_id %><p>
-  ---------------------------------------------------------
-<% end %>
+<table>
+    <tr>
+      <th>タイム</th>
+      <th>ユーザー名</th>
+
+    </tr>
+    <% @entrys.each do |entry| %>
+    <tr>
+      <th><%= Time.at(entry.time).strftime("%H時間%M分%S秒")%></th>
+      <th>
+    <%= entry.user.name %>
+　    </th>
+
+　    </tr>
+    <% end %>
+  </table>
+
+<%= paginate @entrys %>

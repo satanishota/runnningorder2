@@ -1,13 +1,13 @@
 class Admin::EntrysController < ApplicationController
   def index
-    
+
     @entrys = Entry.where("event_id=?", params[:event_id])
 
     # @entrys = Entry.order("time DESC")
   end
-  
+
   def rank
-     @entrys = Entry.where("event_id=?", params[:event_id]).order("time DESC")
+     @entrys = Entry.where("event_id=?", params[:event_id]).order("time").page(params[:page])
   end
 
   def show
@@ -21,7 +21,7 @@ class Admin::EntrysController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update(entry_params)
-      
+
       redirect_to admin_entrys_path
     else
       render :edit
