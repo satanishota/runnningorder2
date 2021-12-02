@@ -7,9 +7,9 @@
       <th>ユーザー名</th>
 
     </tr>
-    <% @entrys.each.with_index(1) do |entry, i| %>
+    <% @entrys.each do |entry| %>
     <tr>
-      <th><%= i %></th>
+      <th><%=entry.rank  %></th>
       <th><%= Time.at(entry.time).strftime("%H時間%M分%S秒")%></th>
       <th>
     <%= entry.user.name %>
@@ -20,3 +20,7 @@
   </table>
 
 <%= paginate @entrys %>
+
+<p>
+  <%= link_to "index", admin_entrys_path(:event_id => @entrys.first.event_id) %>
+<p>

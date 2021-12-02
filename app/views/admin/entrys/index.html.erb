@@ -5,23 +5,24 @@
   <%= link_to "rank", admin_rank_path(:event_id => @entrys.first.event_id) %>
 <p>
 
-  <p><%= @enter %>人/ <%= @entry.event.capacity %></p>
-  <p><%= @entry.event.name %></p>
+  <p><%= @enter %>人/ <%= @event.capacity %></p>
+  <p><%= @event.name %></p>
+
 <table>
     <tr>
+      <th>順位</th>
       <th>タイム</th>
       <th>ユーザー名</th>
 
     </tr>
-    <% @entrys.each do |entry| %>
+    <% @entrys.each.with_index(1) do |entry, i| %>
     <tr>
+      <th><%= i %></th>
+      <th><%=entry.time%></th>
       <th>
-        <%= link_to entry.time, admin_entry_path(entry.id) %>
-      </th>
-      <th><%= entry.user.name %></th>
+    <%= link_to entry.user.name, admin_entry_path(entry.id) %>
+　    </th>
 
 　    </tr>
     <% end %>
   </table>
-
-

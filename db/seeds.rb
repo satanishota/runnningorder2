@@ -229,27 +229,27 @@ User.create!(
     introduction: '上り下りのアドバイスを交えて徹底サポートします',
     place: '長浜',
     capacity: '51',
-    day: '2021-12-12',
+    day: '2021-12-19',
     distance: '5'
     )
 
     10.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "1",time: number+300)
+    Entry.create!(user_id: number+1 ,event_id: "1",time: number+300 ,rank: number+1)
   end
     20.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "2",time: number+300)
+    Entry.create!(user_id: number+1 ,event_id: "2",time: number+300 ,rank: number+1)
   end
     20.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "3",time: number+300)
+    Entry.create!(user_id: number+1 ,event_id: "3",time: number+300 ,rank: number+1)
   end
     20.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "4",time: number+300)
+    Entry.create!(user_id: number+1 ,event_id: "4",time: number+300 ,rank: number+1)
   end
     20.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "5",time: number+300)
+    Entry.create!(user_id: number+1 ,event_id: "5",time: number+300 ,rank: number+1)
   end
-  Entry.create!(user_id: 36 ,event_id: "1",time: 299)
-  Entry.create!(user_id: 36 ,event_id: "2",time: 299)
-  Entry.create!(user_id: 36 ,event_id: "3",time: 299)
-  Entry.create!(user_id: 36 ,event_id: "4",time: 299)
-  Entry.create!(user_id: 36 ,event_id: "5",time: 299)
+  Entry.create!(user_id: 36 ,event_id: "1",time: 299 ,rank: "2" ,start_time: '2021-11-21')
+  Entry.create!(user_id: 36 ,event_id: "2",time: 299 ,rank: "3" ,start_time: '2021-11-28')
+  Entry.create!(user_id: 36 ,event_id: "3",time: 299 ,rank: "4" ,start_time: '2021-12-5')
+  Entry.create!(user_id: 36 ,event_id: "4",time: 299 ,rank: "5" ,start_time: '2021-12-12')
+  Entry.create!(user_id: 36 ,event_id: "5",time: 299 ,rank: "6" ,start_time: '2021-12-19')

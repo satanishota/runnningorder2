@@ -1,10 +1,16 @@
 <h1>Public::Entrys#new</h1>
+<% if @entry.errors.any? %>
+  <%= @entry.errors.count %>件のエラーが発生しました
+  <% @entry.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 
 <%= form_with model: @entry, url:entrys_path, local:true do |f| %>
 
-  <p>タイム</p>
-  <p><%= f.select :time, *[1..10] %></p>
+  <%= f.hidden_field :time, :value => 0%>
   <%= f.hidden_field :event_id, :value => params[:event_id]%>
+
 
   <%= f.submit 'エントリーする' %>
   <p>

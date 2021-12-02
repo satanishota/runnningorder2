@@ -1,14 +1,14 @@
 class Admin::EntrysController < ApplicationController
   def index
 
-    @entrys = Entry.where("event_id=?", params[:event_id])
+    @entrys = Entry.where("event_id=?", params[:event_id]).order("time")
     @enter = @entrys.count
-    @entry = Entry.find(params[:event_id])
+    @event = Event.find(params[:event_id])
 
   end
 
   def rank
-     @entrys = Entry.where("event_id=?", params[:event_id]).order("time").page(params[:page])
+     @entrys = Entry.where("event_id=?", params[:event_id]).order("rank").page(params[:page])
   end
 
   def show

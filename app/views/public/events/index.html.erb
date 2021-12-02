@@ -1,5 +1,14 @@
 <h1>Public::Events#index</h1>
 
+<%= form_tag(search_event_path, method: "get") do %>
+
+  <%= text_field_tag :from %>
+  ~
+  <%= text_field_tag :to %>
+
+  <%= submit_tag "絞り込み" %>
+<% end %>
+
 <% @events.each do |event| %>
   <p>タイトル</p>
   <p>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
   devise_for :users,:controllers => {
  :registrations => 'public/registrations',
  :sessions => 'public/sessions'}
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
  get "rank" => "entrys#rank"
  get "result" => "entrys#result"
  get "search" => "entrys#search"
+ get "search_event" => "events#search_event"
 
   end
 end

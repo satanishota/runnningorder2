@@ -9,7 +9,7 @@ class Public::EntrysController < ApplicationController
     if @entry.save
       redirect_to entry_path(@entry.id)
     else
-      render :show
+      render :new
     end
 
   end
@@ -34,7 +34,7 @@ class Public::EntrysController < ApplicationController
   def search
     @event = Event.find(params[:event_id])
     @users = @event.entrys_users.where('name LIKE ?', "%#{params[:name]}%")
-   
+
     render :rank
   end
 
