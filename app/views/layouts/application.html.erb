@@ -10,58 +10,42 @@
   </head>
 
   <body>
+    <nav class="header1">
     <% if admin_signed_in? %>
 
-      <li>
+      <ul class="header2">
         <%= link_to "ログアウトa", destroy_admin_session_path, method: :delete %>
-      </li>
-      <li>
+
         <%= link_to "トップ画面", admin_top_path %>
-      </li>
-      <li>
+
         <%= link_to "大会一覧", admin_events_path %>
-      </li>
-      <li>
+
         <%= link_to "ユーザー一覧", admin_users_path %>
-      </li>
+      </ul>
 
-    <% else %>
+    <% elsif user_signed_in? %>
 
-      <li>
-        <%= link_to "新規登録a", new_admin_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログインa", new_admin_session_path %>
-
-      </li>
-    <% end %>
-
-    <% if user_signed_in? %>
-
-      <li>
+      <ul class="header2">
         <%= link_to "ログアウトu", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
+
         <%= link_to "マイページ", root_path %>
-      </li>
-      <li>
-        <%= link_to "イベント一覧", events_path %>
-      </li>
-      <li>
+
+        <%= link_to "大会一覧", events_path %>
+
         <%= link_to "エントリー一覧", entrys_path %>
-      </li>
+      </ul>
 
     <% else %>
 
-      <li>
-        <%= link_to "新規登録u", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログインu", new_user_session_path %>
+      <ul class="header2" >
+        <%= link_to "ユーザー新規登録", new_user_registration_path %>
 
-      </li>
+        <%= link_to "ユーザーログイン", new_user_session_path %>
+
+      </ul>
     <% end %>
-
+    </nav>
     <%= yield %>
+
   </body>
 </html>

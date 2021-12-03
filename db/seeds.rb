@@ -246,7 +246,7 @@ User.create!(
     Entry.create!(user_id: number+1 ,event_id: "4",time: number+300 ,rank: number+1)
   end
     20.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "5",time: number+300 ,rank: number+1)
+    Entry.create!(user_id: number+1 ,event_id: "5",time: number+300 やまやま,rank: number+1)
   end
   Entry.create!(user_id: 36 ,event_id: "1",time: 299 ,rank: "2" ,start_time: '2021-11-21')
   Entry.create!(user_id: 36 ,event_id: "2",time: 299 ,rank: "3" ,start_time: '2021-11-28')
