@@ -33,4 +33,5 @@ Rails.application.routes.draw do
  get "search_event" => "events#search_event"
 
   end
+ 
 end

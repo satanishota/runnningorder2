@@ -202,7 +202,15 @@ User.create!(
     )
   Event.create!(
     name: '山道コース',
-    introduction: '山の豊かな自然景観とのコース',
+    introduction: '
+var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+var Options = {
+ zoom: 15,     
+ center: MyLatLng,    
+ mapTypeId: "roadmap"  
+};
+var map = new google.maps.Map(document.getElementById("map"), Options);
+   ',
     place: '米原',
     capacity: '21',
     day: '2021-11-28',
@@ -246,7 +254,7 @@ User.create!(
     Entry.create!(user_id: number+1 ,event_id: "4",time: number+300 ,rank: number+1)
   end
     20.times do |number|
-    Entry.create!(user_id: number+1 ,event_id: "5",time: number+300 やまやま,rank: number+1)
+    Entry.create!(user_id: number+1 ,event_id: "5",time: number+300 ,rank: number+1)
   end
   Entry.create!(user_id: 36 ,event_id: "1",time: 299 ,rank: "2" ,start_time: '2021-11-21')
   Entry.create!(user_id: 36 ,event_id: "2",time: 299 ,rank: "3" ,start_time: '2021-11-28')
