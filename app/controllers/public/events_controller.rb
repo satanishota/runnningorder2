@@ -6,6 +6,7 @@ class Public::EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @entrys = @event.entrys.where(params[:event_id]).count
+    @map = @event.map
 
   end
 

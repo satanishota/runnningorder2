@@ -28,7 +28,7 @@ class Public::EntrysController < ApplicationController
 
   def rank
     @event = Event.find(params[:event_id])
-    @users = @event.entrys_users
+    @users = @event.entrys_users.order("rank")
   end
 
   def search

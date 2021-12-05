@@ -18,6 +18,7 @@ class Admin::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @map = Event.maps
   end
 
   def edit
