@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :events
     resources :users, only: [ :index, :show, :edit, :update]
-    resources :entrys, only: [ :index, :show, :edit, :update,:create]
+    resources :entrys, only: [ :index, :show, :edit, :update,:create,:destroy]
      get "rank" => "entrys#rank"
 
   end
@@ -31,7 +31,11 @@ Rails.application.routes.draw do
  get "result" => "entrys#result"
  get "search" => "entrys#search"
  get "search_event" => "events#search_event"
+ get "about" => "homes#about"
+ get "running" => "homes#running"
+ get "comp" => "entrys#comp"
+
 
   end
- 
+
 end

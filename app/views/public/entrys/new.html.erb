@@ -1,4 +1,4 @@
-<h1>Public::Entrys#new</h1>
+<h1>エントリー画面</h1>
 <% if @entry.errors.any? %>
   <%= @entry.errors.count %>件のエラーが発生しました
   <% @entry.errors.full_messages.each do |message| %>
@@ -9,8 +9,9 @@
 <%= form_with model: @entry, url:entrys_path, local:true do |f| %>
 
   <%= f.hidden_field :time, :value => 0%>
-  <%= f.hidden_field :event_id, :value => params[:event_id]%>
-
+  <%= f.hidden_field :rank, :value => 999%>
+  <%= f.hidden_field :start_time, :value =>@event.day %>
+  <%= f.hidden_field :event_id, :value =>@event.id %>
 
   <%= f.submit 'エントリーする' %>
   <p>

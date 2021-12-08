@@ -29,6 +29,13 @@ class Admin::EntrysController < ApplicationController
     end
   end
 
+  def destroy
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    redirect_to admin_entrys_path
+  end
+
+
   private
   def entry_params
     params.require(:entry).permit(:user_id, :event_id, :time)

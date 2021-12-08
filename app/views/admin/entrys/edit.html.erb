@@ -10,5 +10,8 @@
 
 
   <%= f.submit '更新する' %>
+
+    <p><%= link_to "削除する", admin_entry_path(@entry.id), method: :delete %></p>
+
 <% end %>
 

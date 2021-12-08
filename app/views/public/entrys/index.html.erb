@@ -1,4 +1,4 @@
-<h1>Public::Entrys#index</h1>
+<h1>自分のエントリー</h1>
 
 <%= month_calendar events: @entrys do |date, entrys| %>
   <%= date.day %>
@@ -8,13 +8,16 @@
       <%= link_to entry.event.name,entry_path(entry.id)  %>
     </div>
   <% end %>
-  
+
 <% end %>
 <% @entrys.each do |entry| %>
+<p><%= link_to entry.event.name, event_path(entry.event_id) %><p>
+  <p>順位</p>
+  <p><%= entry.rank %><p>
   <p>タイム</p>
   <p><%= entry.time %><p>
-  <p>大会名</p>
-  <p><%= link_to entry.event.name, event_path(entry.event_id) %><p>
+
+
   ---------------------------------------------------------
 <% end %>
 

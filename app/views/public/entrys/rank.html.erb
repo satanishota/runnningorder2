@@ -1,4 +1,4 @@
-<h1>rank</h1>
+<h1><%=@event.name %> のランキング</h1>
 
 <%= form_tag(search_path, method: "get") do %>
   <%= text_field_tag :name %>
@@ -8,14 +8,23 @@
 
 <table>
     <tr>
+      <th></th>
       <th>順位</th>
       <th>タイム</th>
       <th>ユーザー名</th>
 
     </tr>
-    <% @users.each.with_index(1) do |user, i| %>
+    <% @users.each do |user| %>
     <tr>
-      <th><%= i %></th>
+      <th>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <% if user.entrys.find_by(event_id: @event.id).rank < 4 %>
+        <i class="fas fa-hourglass fa-2x"></i>
+        <% else %>
+        <i class="fas fa-user fa-2x"></i>
+        <% end %>
+      </th>
+      <th><p> <%= user.entrys.find_by(event_id: @event.id).rank%></p></th>
       <th><%= Time.at(user.entrys.find_by(event_id: @event.id).time).strftime("%H時間%M分%S秒")%></th>
       <th>
       <%= link_to user.name, user_path(user) %>　選手
