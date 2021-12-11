@@ -9,6 +9,7 @@ class Organizer::EntrysController < ApplicationController
 
   def rank
      @entrys = Entry.where("event_id=?", params[:event_id]).order("rank").page(params[:page])
+     @event = Event.find(params[:event_id])
   end
 
   def edit

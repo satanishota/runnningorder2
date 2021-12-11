@@ -22,5 +22,5 @@
 <%= paginate @entrys %>
 
 <p>
-  <%= link_to "タイム順へ戻る", organizer_entrys_path(:event_id => @entrys.first.event_id) %>
+  <%= link_to "タイム順へ戻る", organizer_entrys_path(:event_id => @event.id) %>
 <p>

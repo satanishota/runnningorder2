@@ -1,7 +1,7 @@
 <h1>organizers::Events#show</h1>
 
-　<p>
-    <%= link_to "編集する", edit_organizer_event_path(@event.id) %>
+  <p>
+    <%= link_to "エントリー選手一覧", organizer_entrys_path(:event_id => @event.id)%>
   <p>
 
   <p>タイトル</p>
@@ -17,6 +17,9 @@
   <p>距離</p>
   <p><%= @event.distance %>㎞<p>
 
+　<p>
+    <%= link_to "編集する", edit_organizer_event_path(@event.id) %>
   <p>
-    <%= link_to "エントリー選手一覧", organizer_entrys_path(:event_id => @event.id)%>
+　<p>
+    <%= link_to "地図を確認する", event_path(@event.id) %>
   <p>

@@ -18,10 +18,11 @@
 <% end %>
 
 <p>
-    <%= link_to "戻る", organizer_events_path %>
-<p>
-<p><%= link_to "削除", organizer_event_path(@event.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
-
-<p>
 <%= link_to "マップ編集", edit_organizer_map_path(@map, :event_id => @event.id) %>
 <p>
+<p>
+    <%= link_to "詳細画面へ戻る", organizer_event_path %>
+<p>
+<p>
+  <%= link_to "削除", organizer_event_path(@event.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+</p>

@@ -1,7 +1,7 @@
 <h1>Organizer::Entrys#index</h1>
 
 <p>
-  <%= link_to "ランク順へ進む", organizer_rank_path(:event_id => @entrys.first.event_id) %>
+  <%= link_to "ランク順へ進む", organizer_rank_path(:event_id => @event.id) %>
 <p>
 
   <p><%= @enter %>人/ <%= @event.capacity %></p>
