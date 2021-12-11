@@ -1,4 +1,4 @@
-class Admin::EventsController < ApplicationController
+class Organizer::EventsController < ApplicationController
   def new
     @event = Event.new
   end
@@ -10,9 +10,13 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to admin_event_path(@event.id)
+
+      @map = Map.new(map_params)
+      @map.event_id = @event.id
+      @map.save
+      redirect_to organizer_event_path(@event.id)
     else
-      render :show
+      render :new
     end
   end
 
@@ -23,12 +27,13 @@ class Admin::EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @map = @event.map
   end
 
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to admin_events_path
+      redirect_to organizer_events_path
     else
       render :edit
     end
@@ -42,7 +47,9 @@ class Admin::EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :introduction, :place, :capacity, :day, :distance)
+    params.require(:event).permit(:name, :introduction, :place, :capacity, :day, :distance, :organizer_id)
   end
-
+  def map_params
+    params.require(:event).permit(:start, :start_k, :way, :way_k, :goal, :goal_k, :event_id)
+  end
 end

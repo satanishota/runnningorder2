@@ -1,0 +1,20 @@
+<h1>Organizer::Maps#edit</h1>
+
+<%= form_with model: @map, url:organizer_map_path, local:true do |f| %>
+  <p>スタート　緯度</p>
+  <%= f.text_field :start %>
+  <p>スタート　軽度</p>
+  <%= f.text_field :start_k %>
+  <p>中間地点　緯度</p>
+  <%= f.text_field :way %>
+  <p>中間地点　軽度　</p>
+  <%= f.text_field :way_k %>
+  <p>ゴール　緯度</p>
+  <%= f.text_field :goal %>
+  <p>ゴール　経度</p>
+  <%= f.text_field :goal_k %>
+
+  <%= f.hidden_field :event_id, :value =>@event.id %>
+
+  <%= f.submit '編集する' %>
+  <% end %>

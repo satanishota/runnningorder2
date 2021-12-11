@@ -1,0 +1,17 @@
+<h1>Organizer::Entrys#edit</h1>
+
+<%= form_with model: @entry, url: organizer_entry_path(@entry.id), local:true do |f| %>
+  <p>タイム</p>
+  <%= f.text_field :time %>
+  <p>ランク</p>
+  <%= f.text_field :rank %>
+
+  <%= f.hidden_field :event_id, :value => @entry.event_id %>
+  <%= f.hidden_field :start_time, :value => @entry.event.day %>
+
+
+  <%= f.submit '更新する' %>
+
+    <p><%= link_to "削除する", organizer_entry_path(@entry.id), method: :delete %></p>
+
+<% end %>

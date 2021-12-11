@@ -1,0 +1,26 @@
+<h1>rank</h1>
+
+<table>
+    <tr>
+      <th>順位</th>
+      <th>タイム</th>
+      <th>ユーザー名</th>
+
+    </tr>
+    <% @entrys.each do |entry| %>
+    <tr>
+      <th><%=entry.rank  %></th>
+      <th><%= Time.at(entry.time).strftime("%H時間%M分%S秒")%></th>
+      <th>
+    <%= entry.user.name %>
+　    </th>
+
+　    </tr>
+    <% end %>
+  </table>
+
+<%= paginate @entrys %>
+
+<p>
+  <%= link_to "タイム順へ戻る", organizer_entrys_path(:event_id => @entrys.first.event_id) %>
+<p>

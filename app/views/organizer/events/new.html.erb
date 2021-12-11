@@ -1,6 +1,6 @@
-<h1>Admin::Events#edit</h1>
+<h1>organizers::Events#new</h1>
 
-<%= form_with model: @event, url:admin_event_path, local:true do |f| %>
+<%= form_with model: @event, url:organizer_events_path, local:true do |f| %>
   <h4>タイトル</h4>
   <%= f.text_field :name %>
   <h4>本文</h4>
@@ -14,10 +14,9 @@
   <h4>距離</h4>
   <%= f.number_field :distance %>
 
+  <%= f.hidden_field :organizer_id, :value =>current_organizer.id %>
+  
+
   <%= f.submit '作成' %>
 <% end %>
-<%= link_to "削除", admin_event_path(@event.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 
-<p>
-    <%= link_to "戻る", admin_events_path %>
-<p>

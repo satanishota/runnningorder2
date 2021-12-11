@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_030929) do
+ActiveRecord::Schema.define(version: 2021_12_10_034946) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,18 +43,32 @@ ActiveRecord::Schema.define(version: 2021_12_05_030929) do
     t.float "distance", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "organizer_id"
   end
 
   create_table "maps", force: :cascade do |t|
-    t.float "start"
-    t.float "way", null: false
-    t.float "goal"
+    t.float "start", default: 35.27679167064741, null: false
+    t.float "way", default: 35.25950095843937, null: false
+    t.float "goal", default: 35.24571985815995, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id", null: false
-    t.float "start_k"
-    t.float "goal_k"
-    t.float "way_k"
+    t.float "start_k", default: 136.25176259487478, null: false
+    t.float "goal_k", default: 136.22741371387067, null: false
+    t.float "way_k", default: 136.21849524281228, null: false
+  end
+
+  create_table "organizers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_organizers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_organizers_on_reset_password_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
 
 
+  namespace :organizer do
+    get 'entrys/edit'
+    get 'entrys/index'
+  end
+  namespace :organizer do
+    get 'maps/edit'
+  end
+  devise_for :organizers,:controllers => {
+ :registrations => 'organizer/registrations',
+ :sessions => 'organizer/sessions'}
+
   devise_for :users,:controllers => {
  :registrations => 'public/registrations',
  :sessions => 'public/sessions'}
@@ -8,6 +19,17 @@ Rails.application.routes.draw do
   devise_for :admins,path: 'admin',:controllers => {
  :registrations => 'admin/registrations',
  :sessions => 'admin/sessions'}
+
+ namespace :organizer do
+    get 'top' => 'homes#top'
+    root to: 'homes#top'
+    resources :events
+    resources :users, only: [ :index, :show, :edit, :update]
+    resources :entrys, only: [ :index, :show, :edit, :update,:create,:destroy]
+    resources :maps, only: [ :edit, :update]
+     get "rank" => "entrys#rank"
+
+  end
 
   namespace :admin do
     get 'top' => 'homes#top'
