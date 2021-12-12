@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 2021_12_10_034946) do
     t.float "start", default: 35.27679167064741, null: false
     t.float "way", default: 35.25950095843937, null: false
     t.float "goal", default: 35.24571985815995, null: false
+    t.integer "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "event_id", null: false
     t.float "start_k", default: 136.25176259487478, null: false
     t.float "goal_k", default: 136.22741371387067, null: false
     t.float "way_k", default: 136.21849524281228, null: false

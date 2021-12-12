@@ -4,6 +4,8 @@ class CreateMaps < ActiveRecord::Migration[5.2]
       t.float :start
       t.float :way, null: false
       t.float :goal
+      t.integer :event_id, null: false
+      
       
       t.timestamps
     end
