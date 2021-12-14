@@ -46,6 +46,7 @@ Rails.application.routes.draw do
  resources :entrys, only: [ :index, :show, :new, :create]
  resources :users, only: [ :show, :edit, :update]
  resources :events, only: [ :index, :show]
+ resource :favorites, only: [:create, :destroy]
  get 'top' => 'homes#top'
  root to: 'homes#top'
  get 'about' => 'homes#about'

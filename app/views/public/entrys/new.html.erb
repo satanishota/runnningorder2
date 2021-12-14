@@ -1,9 +1,9 @@
 <h1>エントリー画面</h1>
 <% if @entry.errors.any? %>
-  <%= @entry.errors.count %>件のエラーが発生しました
-  <% @entry.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
+
+
+  すでにエントリー済みです。
+
 <% end %>
 
 <%= form_with model: @entry, url:entrys_path, local:true do |f| %>

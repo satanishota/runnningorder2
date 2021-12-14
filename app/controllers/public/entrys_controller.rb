@@ -2,7 +2,7 @@ class Public::EntrysController < ApplicationController
   def new
     @entry = Entry.new
     @event = Event.find(params[:event_id])
- 
+
   end
 
   def create
@@ -10,6 +10,7 @@ class Public::EntrysController < ApplicationController
     if @entry.save
       redirect_to comp_path
     else
+      @event = @entry.event
       render :new
     end
 

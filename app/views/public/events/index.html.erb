@@ -19,6 +19,19 @@
   <p class="event1"><%= event.day %><p>
   <p>距離</p>
   <p><%= event.distance %>㎞<p>
+    <% if event.favorited_by?(current_user) %>
+    <p>
+      <%= link_to favorites_path(:event_id => event.id), method: :delete do %>
+        ♥<%= event.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to favorites_path(:event_id => event.id), method: :post do %>
+        ♡<%= event.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
     -------------------------------------------------------------
   <%else %>
 
