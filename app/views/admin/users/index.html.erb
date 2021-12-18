@@ -1,10 +1,10 @@
-<h1>Admin::Users#index</h1>
+<h1>ユーザー一覧</h1>
 
 <% @users.each do |user| %>
   <p>ユーザー名</p>
   <p>
     <%= link_to user.name, admin_user_path(user.id) %>
   <p>
-  
+
 <% end %>
 

@@ -1,26 +1,27 @@
-<h2>Log in organizers</h2>
-<%= form_with model: @organizer, url: organizer_session_path, local: true do |f| %>
 
+<div class="main-column">
+<h2 class="login3">主催者ログイン</h2>
+<div class="loginBlock">
+<div class="loginArea3">
+
+<%= form_with model: @organizer, url: organizer_session_path, local: true do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :"Eメール" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :"パスワード" %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
-<% end %>
+  <% end %>
+</div>
+</div>
+</div>
 
-<%= render "organizer/shared/links" %>
+<p><%= link_to "主催者新規登録", new_organizer_registration_path %></p>
+

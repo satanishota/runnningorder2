@@ -1,0 +1,14 @@
+<h1>主催者編集</h1>
+
+<%= form_with model: @organizer, url:admin_organizer_path, local:true do |f| %>
+  <h4>名前</h4>
+  <%= f.text_field :name %>
+  <h4>メール</h4>
+  <%= f.text_field :email %>
+
+  <%= f.submit '編集' %>
+<% end %>
+
+<p>
+    <%= link_to "戻る", admin_organizers_path %>
+<p>

@@ -1,0 +1,10 @@
+<h1>主催者一覧</h1>
+
+<% @organizers.each do |organizer| %>
+  <p>主催者名</p>
+  <p>
+    <%= link_to organizer.name, edit_admin_organizer_path(organizer.id) %>
+  <p>
+
+<% end %>
+

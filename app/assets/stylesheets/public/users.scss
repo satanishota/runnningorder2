@@ -1,3 +1,26 @@
 // Place all the styles related to the public/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login1{
+  color:blue;
+}
+.loginBlock {
+    width: 428px;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+}
+.main-column {
+    width: auto;
+    margin-top: 70px;
+    margin-left: 245px;
+    padding: 20px 20px 0 20px;
+    min-width: 780px;
+}
+.loginArea {
+
+    border: 4px solid blue;
+    border-radius: 6px;
+    padding: 10px ;
+}

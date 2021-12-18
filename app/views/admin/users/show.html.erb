@@ -1,8 +1,9 @@
-<h1>Admin::Users#show</h1>
+<h1>ユーザー詳細</h1>
 
+<p>ユーザーID</p>
+<p><%= @user.id %><p>
 <p>ユーザー名</p>
 <p><%= @user.name %><p>
-
 <p>
     <%= link_to "編集する", edit_admin_user_path(@user.id) %>
 <p>

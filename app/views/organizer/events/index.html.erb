@@ -1,4 +1,4 @@
-<h1>organizer_id::Events#index</h1>
+<h1>大会一覧</h1>
 
 <p>
   <%= link_to "新規登録", new_organizer_event_path %>
@@ -11,7 +11,7 @@
   <p>
   <p>開催日</p>
   <p><%= event.day %><p>
-  <p>距離</p>
-  <p><%= event.distance %>㎞<p>
+  <p>主催者</p>
+  <p><%= event.organizer.name %> 様<p>
 <% end %>
 

@@ -19,9 +19,12 @@
         <%= link_to "トップ画面", admin_top_path %>
 
         <%= link_to "ユーザー一覧", admin_users_path %>
+
+        <%= link_to "主催者一覧", admin_organizers_path %>
+
       </ul>
     <% elsif organizer_signed_in? %>
-    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    <%= link_to "ログアウト", destroy_organizer_session_path, method: :delete %>
     <%= link_to "大会一覧", organizer_events_path %>
     <%= link_to "トップ画面", organizer_top_path %>
     </ul>
@@ -49,7 +52,7 @@
 
         <%= link_to "ユーザーログイン", new_user_session_path %>
 
-        <%= link_to "テスト", about_path %>
+        <%= link_to "About", about_path %>
 
       </ul>
     <% end %>

@@ -1,18 +1,2 @@
-<h1>top</h1>
+<h1>主催者トップ</h1>
 
-<table>
-    <tr>
-      <th>タイム</th>
-      <th>大会ID</th>
-      <th>ユーザー名</th>
-    </tr>
-    <% @entrys.each do |entry| %>
-    <tr>
-      <th>
-        <%= link_to entry.time, admin_entry_path(entry.id) %>
-      </th>
-      <th><%= entry.event_id %> </th>
-　    <th><%= entry.user.name %></th>
-　    </tr>
-    <% end %>
-  </table>

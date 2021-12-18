@@ -1,33 +1,41 @@
-<h2>Sign up organizer</h2>
 
-<%= form_with model: @organizer, url: organizer_registration_path, local: true do |f| %>
+<div class="main-column">
+<h2 class="login3">主催者新規登録</h2>
+<div class="loginBlock">
+<div class="loginArea3">
+
+  <%= form_with model: @organizer, url: organizer_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :"Eメール" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :"パスワード" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :"パスワード確認" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+  <%= f.label :管理者名 %><br />
+  <%= f.text_field :name, autofocus: true %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
+</div>
+</div>
+</div>
 
-<%= render "organizer/shared/links" %>
+<p><%= link_to "主催者ログイン", new_organizer_session_path %></p>

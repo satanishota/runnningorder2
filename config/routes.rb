@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
 
-  namespace :organizer do
-    get 'entrys/edit'
-    get 'entrys/index'
-  end
-  namespace :organizer do
-    get 'maps/edit'
-  end
+
   devise_for :organizers,:controllers => {
  :registrations => 'organizer/registrations',
  :sessions => 'organizer/sessions'}
@@ -36,7 +30,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :events
     resources :users, only: [ :index, :show, :edit, :update]
-    resources :entrys, only: [ :index, :show, :edit, :update,:create,:destroy]
+    resources :organizers, only: [ :index, :edit, :update]
      get "rank" => "entrys#rank"
 
   end

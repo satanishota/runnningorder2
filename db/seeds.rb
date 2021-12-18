@@ -10,6 +10,11 @@ Admin.create!(
   email: 'a@a1',
   password: 'pppppp'
 )
+Organizer.create!(
+  email: 'o@o1',
+  name: '主催者1',
+  password: 'pppppp'
+)
 
 35.times do |time|
   User.create!(name: "test_#{time}", email: "e@e#{time}", password: "pppppp")
@@ -23,7 +28,8 @@ end
     place: '彦根',
     capacity: 11,
     day: '2021-11-28',
-    distance: 3.0
+    distance: 3.0,
+    organizer_id: 1
     )
   Event.create!(
     name: '林道コース',
@@ -32,7 +38,8 @@ end
     place: '長浜',
     capacity: 21,
     day: '2021-12-5',
-    distance: 5.0
+    distance: 5.0,
+    organizer_id: 1
     )
   Event.create!(
     name: '公園コース',
@@ -41,7 +48,8 @@ end
     place: '草津',
     capacity: 31,
     day: '2021-12-12',
-    distance: 10.0
+    distance: 10.0,
+    organizer_id: 1
     )
   Event.create!(
     name: '山道コース',
@@ -50,7 +58,8 @@ end
     place: '米原',
     capacity: 41,
     day: '2021-12-19',
-    distance: 3.0
+    distance: 3.0,
+    organizer_id: 1
   )
   Event.create!(
     name: '川沿いコース',
@@ -59,12 +68,13 @@ end
     place: '大津',
     capacity: 51,
     day: '2021-12-26',
-    distance: 5.0
+    distance: 5.0,
+    organizer_id: 1
   )
 
 
   10.times do |number|
-    Entry.create!(user_id: 1+number, event_id: 1, time: number+300 ,rank: number+1)
+    Entry.create!(user_id: 1+number, event_id: 1, time: number+300 ,rank: number+2)
   end
     18.times do |number|
     Entry.create!(user_id: number+10, event_id: 2,time: number+1200 ,rank: number+4)
@@ -81,7 +91,7 @@ end
   Entry.create!(user_id: 36, event_id: 1, time: 299, rank: 2, start_time: '2021-11-28')
   Entry.create!(user_id: 36, event_id: 2, time: 1200, rank: 3, start_time: '2021-12-5')
 
-
+  Entry.create!(user_id: 3, event_id: 1, time: 298, rank: 1)
   Entry.create!(user_id: 3, event_id: 2, time: 1190, rank: 1)
   Entry.create!(user_id: 5, event_id: 2, time: 1195, rank: 2)
 

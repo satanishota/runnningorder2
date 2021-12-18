@@ -12,7 +12,7 @@
   <h4>開催日</h4>
   <%= f.date_select :day %>
   <h4>距離</h4>
-  <%= f.number_field :distance %>
+  <%= f.text_field :distance %>
 
   <%= f.hidden_field :organizer_id, :value =>current_organizer.id %>
   
