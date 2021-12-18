@@ -1,18 +1,25 @@
-<h1>result</h1>
+<h1><%=@user.name%>選手の大会参加履歴一覧</h1>
 
-  <table>
-    <tr>
+  <table class="table1" border=1>
+    <tbody>
+    <tr align="center">
+      <th>開催日</th>
+      <th>順位</th>
       <th>タイム</th>
       <th>大会名</th>
 
     </tr>
     <% @entrys.each do |entry| %>
     <tr>
+       <th><%=  entry.event.day %></th>
+       <th><%=  entry.rank %></th>
       <th>
         <%= Time.at(entry.time).strftime("%H時間%M分%S秒")%>
       </th>
+
       <th><%= link_to entry.event.name, event_path(entry.event_id) %></th>
 
 　    </tr>
+　    </tbody>
     <% end %>
   </table>

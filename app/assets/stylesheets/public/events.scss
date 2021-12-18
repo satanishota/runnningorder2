@@ -6,12 +6,26 @@
   color: red;
 }
 .event_s1{
-  text-align:right;
-}
-.event_s2{
+  width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
 
+}
+.event2{
+  width: 50%;
+border: 5px solid aqua;
   text-align: center;
+
+}
+.event3{
+  display: inline-block;
 }
 
+.btn-primary{
+background-color: red;
+}
+.btn-secondary{
+background-color: blue;
+}
 
 

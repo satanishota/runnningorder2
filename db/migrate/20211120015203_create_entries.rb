@@ -5,7 +5,9 @@ class CreateEntries < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.integer :event_id, null: false
       t.integer :time, null: false
-
+      t.integer :rank, null: false
+      t.datetime :start_time, null: false
+      
       t.timestamps
     end
   end

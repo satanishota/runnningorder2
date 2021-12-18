@@ -28,6 +28,7 @@ class Public::EntrysController < ApplicationController
   end
 
   def result
+    @user = User.find(params[:user_id])
     @entrys = Entry.where("user_id=?", params[:user_id])
   end
 

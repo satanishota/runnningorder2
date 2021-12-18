@@ -1,4 +1,4 @@
-<h1>Organizer::Entrys#index</h1>
+<h1>エントリー一覧（タイム順）</h1>
 
 <p>
   <%= link_to "ランク順へ進む", organizer_rank_path(:event_id => @event.id) %>
@@ -18,9 +18,16 @@
     <tr>
       <th><%= i %></th>
       <th><%=entry.time%></th>
+      <% if entry.event.organizer_id == current_organizer.id %>
       <th>
-    <%= link_to entry.user.name, edit_organizer_entry_path(entry.id) %>
+      <%= link_to entry.user.name, edit_organizer_entry_path(entry.id) %>
+      </th>
+      <% else %>
+      <th>
+        <%= entry.user.name %>
+
 　    </th>
+　    <% end %>
 
 　    </tr>
     <% end %>

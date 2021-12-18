@@ -10,16 +10,39 @@
 <% end %>
 
 <% @events.each do |event| %>
+<div class="event2">
 <% if event.day <= Date.today %>
-
   <p>
     <%= link_to event.name, event_path(event.id) %>
   <p>
   <p>開催日</p>
   <p class="event1"><%= event.day %><p>
   <p>距離</p>
-  <p><%= event.distance %>㎞<p>
+  <p class="event3"><%= event.distance %>㎞<p>
     <% if event.favorited_by?(current_user) %>
+    <p class="event3">
+      <%= link_to favorites_path(:event_id => event.id), method: :delete do %>
+        ♥<%= event.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p class="event3">
+      <%= link_to favorites_path(:event_id => event.id), method: :post do %>
+        ♡<%= event.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+
+  <%else %>
+
+  <p>
+    <%= link_to event.name, event_path(event.id) %>
+  <p>
+  <p>開催日</br>
+  <%= event.day %></p>
+  <p >距離</br>
+  <%= event.distance %>㎞</p>
+     <% if event.favorited_by?(current_user) %>
     <p>
       <%= link_to favorites_path(:event_id => event.id), method: :delete do %>
         ♥<%= event.favorites.count %> いいね
@@ -30,18 +53,8 @@
       <%= link_to favorites_path(:event_id => event.id), method: :post do %>
         ♡<%= event.favorites.count %> いいね
       <% end %>
-    </p>
-  <% end %>
-    -------------------------------------------------------------
-  <%else %>
 
-  <p>
-    <%= link_to event.name, event_path(event.id) %>
-  <p>
-  <p>開催日</p>
-  <p><%= event.day %><p>
-  <p>距離</p>
-  <p><%= event.distance %>㎞<p>
-    -------------------------------------------------------------
 <% end %>
+<% end %>
+</div>
 <% end %>

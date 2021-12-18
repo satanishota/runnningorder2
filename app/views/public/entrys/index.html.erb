@@ -1,23 +1,33 @@
-<h1>自分のエントリー</h1>
-
+<h1>自分のエントリー一覧</h1>
+<div class="calendar">
 <%= month_calendar events: @entrys do |date, entrys| %>
   <%= date.day %>
 
   <% entrys.each do |entry| %>
-    <div>
+    <p>
       <%= link_to entry.event.name,entry_path(entry.id)  %>
-    </div>
+    </p>
   <% end %>
-
+</div>
 <% end %>
 <% @entrys.each do |entry| %>
-<p><%= link_to entry.event.name, event_path(entry.event_id) %><p>
-  <p>順位</p>
-  <p><%= entry.rank %><p>
-  <p>タイム</p>
-  <p><%= entry.time %><p>
+<%  if entry.event.day <= Date.today %>
+<div class="entry1">
+<p><%= link_to entry.event.name, event_path(entry.event_id) %>の結果を見る<p>
+  <p>順位
+  <%= entry.rank %><p>
+  <p>タイム
+  <%= entry.time %><p>
+</div>
+<% else %>
+<div class="entry2">
+<p><%= link_to entry.event.name, event_path(entry.event_id) %>の詳細へ<p>
+  <p>順位
+  <%= entry.rank %><p>
+  <p>タイム
+  <%= entry.time %><p>
+</div>
 
-
-  ---------------------------------------------------------
+<% end %>
 <% end %>
 

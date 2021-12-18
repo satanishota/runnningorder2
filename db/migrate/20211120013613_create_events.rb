@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :capacity, null: false
       t.date :day, null: false
       t.float :distance, null: false
+      t.integer :organizer_id, null: false
       
       t.timestamps
     end

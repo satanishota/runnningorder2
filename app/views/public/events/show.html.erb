@@ -1,9 +1,9 @@
-<h1>イベント詳細</h1>
+<h1>大会詳細</h1>
 
  <p>
   <%= link_to "大会一覧へ戻る", events_path%>
   </p>
-<div class="event_s2">
+<div class="event_s1">
   <p><%= @event.name %></p>
   <p>内容</br>
   <%= @event.introduction %></p>
@@ -24,16 +24,16 @@
   <% elsif  @event.capacity <= @entrys %>
   <p>定員オーバーのためエントリーを締め切りました。</p>
   <% else %>
-  </p>
-  <%= link_to "エントリーへ進む", new_entry_path(:event_id => @event.id)%>
-  </p>
+
+<%=link_to new_entry_path(:event_id => @event.id) do %>
+    <button class="btn btn-primary" >エントリーへ進む</button>
+    <%end%>
   <% end %>
-
-  <p>
-  <%= link_to "ランキングを見る", rank_path(:event_id => @event.id)%>
-  </p>
-
--------------------------------------------------------------------
+<p>
+<%=link_to rank_path(:event_id => @event.id) do %>
+    <button class="btn btn-secondary" >ランキングを見る</button>
+  <%end%>
+</p>
 <style>
 html { height: 100% }
 body { height: 100% }

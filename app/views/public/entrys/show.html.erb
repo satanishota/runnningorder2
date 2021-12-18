@@ -1,8 +1,10 @@
-<h1>Public::Entrys#show</h1>
+<h1>エントリー詳細</h1>
 
 <p>タイム</p>
-  <p><%= @entry.time %><p>
-
+<p><%= @entry.time %><p>
+<p>順位</p>
+<p><%= @entry.rank %><p>
+<p>大会名</p></p>
 <p>
   <%= link_to @entry.event.name, event_path(@entry.event_id) %>
 <p>
