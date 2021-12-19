@@ -12,14 +12,12 @@
 <% @events.each do |event| %>
 <div class="event2">
 <% if event.day <= Date.today %>
- <div class="map2">
-
-   <%=image_tag asset_path('map1.png', :alt => '画像')%>
+ 
 
   <p class="map4">
     <%= link_to event.name, event_path(event.id) %>
   <p>
-     </div>
+    
 <div class="map3">
   <p>開催日</p>
   <p class="event1"><%= event.day %><p>
