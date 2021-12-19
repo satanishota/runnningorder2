@@ -12,12 +12,17 @@ Admin.create!(
 )
 Organizer.create!(
   email: 'o@o1',
-  name: '主催者1',
+  name: '局員_1',
+  password: 'pppppp'
+)
+Organizer.create!(
+  email: 'o@o2',
+  name: '局員_2',
   password: 'pppppp'
 )
 
 35.times do |time|
-  User.create!(name: "test_#{time}", email: "e@e#{time}", password: "pppppp")
+  User.create!(name: "部員_#{time+1}", email: "e@e#{time+1}", password: "pppppp")
 end
  User.create!(name: "ゲスト", email: "e@e36", password: "pppppp")
 

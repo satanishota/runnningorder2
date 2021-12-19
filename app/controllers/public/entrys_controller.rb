@@ -23,10 +23,7 @@ class Public::EntrysController < ApplicationController
   def index
     @entrys = current_user.entrys
   end
-  def index
-    @entrys = current_user.entrys
-  end
-
+  
   def result
     @user = User.find(params[:user_id])
     @entrys = Entry.where("user_id=?", params[:user_id])

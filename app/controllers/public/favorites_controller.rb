@@ -10,7 +10,7 @@ class Public::FavoritesController < ApplicationController
     @event = Event.find(params[:event_id])
     favorite = current_user.favorites.find_by(event_id: @event.id)
     favorite.destroy
-    redirect_to events_pat
+    redirect_to events_path
 
   end
 

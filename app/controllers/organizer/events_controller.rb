@@ -57,8 +57,9 @@ class Organizer::EventsController < ApplicationController
   end
   def correct_organizer
     @event = Event.find(params[:id])
+    flash[:notice] = "別の主催者のため編集できません"
    unless @event.organizer_id == current_organizer.id
-     flash[:notice] = "別の主催者のため編集できません"
+
       redirect_to organizer_event_path(@event)
 
    end

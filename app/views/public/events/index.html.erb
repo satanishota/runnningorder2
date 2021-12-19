@@ -12,9 +12,12 @@
 <% @events.each do |event| %>
 <div class="event2">
 <% if event.day <= Date.today %>
+ <div class="map2"><%= image_tag'map1.png',  class:'map1'%>
+<div class="map3">
   <p>
     <%= link_to event.name, event_path(event.id) %>
   <p>
+
   <p>開催日</p>
   <p class="event1"><%= event.day %><p>
   <p>距離</p>
@@ -25,6 +28,7 @@
         ♥<%= event.favorites.count %> いいね
       <% end %>
     </p>
+
     <% else %>
     <p class="event3">
       <%= link_to favorites_path(:event_id => event.id), method: :post do %>
@@ -32,7 +36,9 @@
       <% end %>
     </p>
   <% end %>
-
+  
+  </div>
+</div>
   <%else %>
 
   <p>
