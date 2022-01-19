@@ -70,6 +70,8 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'geocoder'
 
+gem 'rails-i18n'
+
 gem 'dotenv-rails'
 group :production do
 gem 'mysql2'

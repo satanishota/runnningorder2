@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+    attributes:
+      event:
+        name: イベント名
+        introduction: 本文
+        place: 開催場所
+        capacity: 定員
+        day: 開催日
+        distance: 距離

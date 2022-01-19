@@ -1,6 +1,7 @@
 <h1>イベント詳細</h1>
+<% unless @event.organizer_id == current_organizer.id %>
 <p><%= flash.notice %></p>
-
+<% end %>
   <p>
     <%= link_to "エントリー選手一覧", organizer_entrys_path(:event_id => @event.id)%>
   <p>

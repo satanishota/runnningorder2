@@ -1,5 +1,12 @@
 <h1>大会新規登録</h1>
 
+<% if @event.errors.any? %>
+  <%= @event.errors.count %>件のエラーが発生しました
+  <% @event.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <%= form_with model: @event, url:organizer_events_path, local:true do |f| %>
   <h4>タイトル</h4>
   <%= f.text_field :name %>
