@@ -16,4 +16,16 @@ class Public::EventsController < ApplicationController
 
     render :index
   end
+
+  def search2_event
+
+    @events = Event.all.order(:day)
+    
+    @events.each do |event|
+    if event.day <= Date.today
+      @events = Event.where("day > ?", Date.today)
+    end
+  end
+    render :index
+  end
 end

@@ -48,6 +48,8 @@ Rails.application.routes.draw do
  get "result" => "entrys#result"
  get "search" => "entrys#search"
  get "search_event" => "events#search_event"
+ get "search2_event" => "events#search2_event"
+ 
  get "about" => "homes#about"
  get "running" => "homes#running"
  get "comp" => "entrys#comp"

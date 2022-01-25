@@ -8,7 +8,10 @@
   ㎞
   <%= submit_tag "絞り込み" %>
 <% end %>
+<%= form_tag(search2_event_path, method: "get") do %>
 
+  <%= submit_tag "絞り込み2" %>
+<% end %>
 <% @events.each do |event| %>
 <div class="event2">
 <% if event.day <= Date.today %>
