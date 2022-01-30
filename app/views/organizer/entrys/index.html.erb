@@ -7,6 +7,12 @@
   <p><%= @enter %>人/ <%= @event.capacity %></p>
   <p><%= @event.name %></p>
 
+<%= form_tag(organizer_update_all_path, method: "patch") do %>
+<%= hidden_field_tag :event_id, @event.id%>
+   <%= submit_tag "一括更新" %>
+<% end %>
+
+
 <table>
     <tr>
       <th>順位</th>

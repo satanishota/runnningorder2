@@ -1,32 +1,75 @@
-<h4>timer</h4>
-<style>
-    #log {
-      font-size: 60px;
-    }
-    #button {
-      font-size: 60px;
-    }
-    
-  </style>
-<p id="log"></p>
-<button class="button">a</button>
+<h1>エントリー編集</h1>
+
+<div class = "tim">
+    <button id="start" class = "timer">start</button>
+    <button id="stop" class = "timer">stop</button>
+    <button id="reset" class = "timer">reset</button>
+
+    <%= form_with model: @entry, url:entry_path, local:true do |f| %>
+<div ><%= f.text_area :time, id:"timer",class:"time" %>
+
+</div>
+
+
+
+  <%= f.hidden_field :rank, :value => 999%>
+  <%= f.hidden_field :start_time, :value =>@entry.event.day %>
+  <%= f.hidden_field :event_id, :value =>@entry.event.id %>
+
+  <%= f.submit 'タイムを更新する' %>
+  <% end %>
+ </div>
 <script>
-  document.querySelector('.button').addEventListener('click', () => {
-  
 
- // スクリプト開始時の時間を記録
-const oldTime = Date.now();
+    let timer = document.getElementById('timer');
+    let start = document.getElementById('start');
+    let stop = document.getElementById('stop');
+    let reset = document.getElementById('reset');
 
-setInterval(() => {
-  const currentTime = Date.now();
-  // 経過したミリ秒を取得
-  const diff = currentTime - oldTime;
+    //クリック時の開始時間を保持するための変数
+    let startTime;
 
-  // 秒数を得る
-  const sec = Math.floor(diff / 1000);
+    //経過時刻を更新するための変数。
+    let diffTime = 0;
 
-  // HTMLに文字列を挿入
-  document.querySelector('#log').innerHTML = `${sec}秒が経過`;
-}, 1000);
-});
+    //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
+    let timerId;
+
+    function updateTimeText(){
+        //s(秒) =   (ミリ秒なので1000で割ってやる)
+        let s = Math.floor(diffTime / 1000);
+        console.log(s)
+        timer.value =  s + "秒" ;
+    }
+    //再帰的に使える用の関数
+    function countUp(){
+        //timerId変数はsetTimeoutの返り値になるので代入する
+        timerId = setTimeout(function(){
+            //経過時刻は現在時刻をミリ秒で示すDate.now()からstartを押した時の時刻(startTime)を引く
+            diffTime = Date.now() - startTime;
+            updateTimeText()
+            //countUp関数自身を呼ぶことで1000ミリ秒毎に以下の計算を始める
+            countUp();
+        //時間を表示するために1000ミリ秒後に始めるよう宣言
+        },1000);
+        console.log(timerId)
+    }
+    //startボタンにクリック時のイベント
+    start.addEventListener('click',function(){
+        startTime = Date.now();
+        //再帰的に使えるように関数を作る
+        countUp();
+    });
+
+    //stopボタンにクリック時のイベント
+    stop.addEventListener('click',function(){
+       clearTimeout(timerId);
+    });
+
+    //resetボタンにクリック時のイベント
+    reset.addEventListener('click',function(){
+        diffTime = 0;
+        updateTimeText();
+    });
+
 </script>

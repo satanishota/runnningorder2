@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :entrys, only: [ :index, :show, :edit, :update,:create,:destroy]
     resources :maps, only: [ :edit, :update]
      get "rank" => "entrys#rank"
+     patch "update_all" => "entrys#update_all"
 
   end
 
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
 
 
  scope module: :public do
- resources :entrys, only: [ :index, :show, :new, :edit, :create]
+ resources :entrys, only: [ :index, :show, :new, :edit, :update, :create]
  resources :users, only: [ :show, :edit, :update]
  resources :events, only: [ :index, :show]
  resource :favorites, only: [:create, :destroy]

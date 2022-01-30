@@ -25,6 +25,12 @@ class Organizer::EntrysController < ApplicationController
       render :edit
     end
   end
+  
+  def update_all
+    
+    Entry.where("event_id=?", params[:event_id]).update_all(rank: 999)
+  
+  end
 
   def destroy
     @entry = Entry.find(params[:id])

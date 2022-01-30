@@ -14,10 +14,30 @@
  margin: 0 auto;
 }
 .entry2{
-
+border-bottom: 3px solid blue;
  width: 60%;
  margin: 0 auto;
 }
 .table1{
   width: 60%;
+}
+.calendar-heading{
+font-size: 40px;
+}
+.calendar{
+margin: 0 auto;
+}
+.font30{
+  font-size: 30px;
+}
+.timer{
+   font-size: 50px;
+}
+
+.time{
+   width: 60%;
+   height: 100px;
+  margin: 20px;
+font-size: 100px;
+text-align: center;
 }

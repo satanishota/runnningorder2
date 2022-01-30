@@ -1,14 +1,19 @@
 <h1>エントリー詳細</h1>
 
-<p>タイム</p>
-<p><%= @entry.time %><p>
-<p>順位</p>
-<p><%= @entry.rank %><p>
-<p>大会名</p></p>
-<p>
+<p class = "font30">
   <%= link_to @entry.event.name, event_path(@entry.event_id) %>
 <p>
+<p>開催日
+<span><%= @entry.event.day %><span></p>
+<p>タイム
+<span><%= Time.at(@entry.time).strftime("%H時間%M分%S秒")%><span></p>
+<p>順位
+<% if   @entry.rank == 999 %>
+---
+<% else %>
+<span><%= @entry.rank %><span></p>
+<% end %>
+<p class = "font30">
+  <%= link_to "タイムを計測する", edit_entry_path(@entry) %>
 <p>
-  <%= link_to "timer", edit_entry_path(@entry) %>
-<p>
-  
+

@@ -50,6 +50,20 @@ class Public::EntrysController < ApplicationController
 
   def  running
   end
+  
+  def edit
+    @entry = Entry.find(params[:id])
+  end
+  
+  def update
+    @entry = Entry.find(params[:id])
+    if
+    @entry.update(entry_params)
+    redirect_to entry_path(@entry)
+    end
+  end
+  
+  
 
 
 
