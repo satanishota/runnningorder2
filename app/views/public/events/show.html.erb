@@ -29,10 +29,17 @@
     <button class="btn btn-primary" >エントリーへ進む</button>
     <%end%>
   <% end %>
+
 <p>
+<% if @event.day <= Date.today %>
 <%=link_to rank_path(:event_id => @event.id) do %>
     <button class="btn btn-secondary" >ランキングを見る</button>
+
   <%end%>
+<% else %>
+
+  <p>集計中</p>
+<%end%>
 </p>
 
 <style>
@@ -80,5 +87,3 @@ body { height: 100% }
   }
 </script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyBM48qcMZ4GHZwvT2UCuEcRq7raYOTi9q8&language=ja&callback=initMap" async defer></script>
-
-<p>地図が表示されないときは再読み込みしてください</p>

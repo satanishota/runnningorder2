@@ -24,7 +24,7 @@
         <i class="fas fa-user fa-2x"></i>
         <% end %>
       </th>
-      <% if user.entrys.find_by(event_id: @event.id).rank = 999 %>
+      <% if user.entrys.find_by(event_id: @event.id).rank == 999 %>
       <th>---</th>
       <% else %>
       <th><p> <%= user.entrys.find_by(event_id: @event.id).rank%></p></th>
