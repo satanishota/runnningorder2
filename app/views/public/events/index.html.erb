@@ -1,17 +1,20 @@
 <h1>大会一覧</h1>
-
+<div class ="mgn10" >
 <%= form_tag(search_event_path, method: "get") do %>
-
   <%= text_field_tag :from %>
   ~
   <%= text_field_tag :to %>
   ㎞
   <%= submit_tag "絞り込み" %>
 <% end %>
+</div>
+<div class ="mgn10">
 <%= form_tag(search2_event_path, method: "get") do %>
 
   <%= submit_tag "エントリー期限が近い大会を探す" %>
 <% end %>
+</div>
+
 
 <% @events.each do |event| %>
 <div class="event2">

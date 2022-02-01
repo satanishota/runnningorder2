@@ -44,6 +44,7 @@ class Public::EntrysController < ApplicationController
     else
     @event = Event.find(params[:event_id])
     @users = @event.entrys_users.where('name LIKE ?', "%#{params[:name]}%").order("rank")
+    # ユーザー名の部分一致で検索
     render :rank
     end
   end

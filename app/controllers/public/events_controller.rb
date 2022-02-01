@@ -13,6 +13,7 @@ class Public::EventsController < ApplicationController
   def search_event
 
     @events = Event.where( "distance BETWEEN ? AND ?",(params[:from]),(params[:to]))
+    # from ≦　大会の距離　≦　to　で検索
 
     render :index
   end

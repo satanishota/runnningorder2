@@ -15,8 +15,12 @@
   <%= f.hidden_field :rank, :value => 999%>
   <%= f.hidden_field :start_time, :value =>@entry.event.day %>
   <%= f.hidden_field :event_id, :value =>@entry.event.id %>
+<% if @entry.event.day <= Date.today %>
+<p>集計中</p>
+<% else %>
+<%= f.submit 'タイムを更新する' %>
+<%end%>
 
-  <%= f.submit 'タイムを更新する' %>
   <% end %>
  </div>
 <script>

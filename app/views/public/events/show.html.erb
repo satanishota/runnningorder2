@@ -4,13 +4,13 @@
   <%= link_to "大会一覧へ戻る", events_path%>
   </p>
 <div class="event_s1">
-  <p><%= @event.name %></p>
+  <p class = "event_name"><%= @event.name %></p>
   <p>内容</br>
   <%= @event.introduction %></p>
   <p>開催場所</br>
   <%= @event.place %></p>
   <p>定員</br>
-  <%= @event.capacity %></p>
+  <%= @event.capacity %>名</p>
   <p>開催日</br>
   <%= @event.day %></p>
   <p>距離</br>
